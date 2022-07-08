@@ -5,7 +5,7 @@ module Prawnto
     class Base < (base_class_for_template_handler_required? ? ::ActionView::TemplateHandler : ::Object)
       include ::ActionView::TemplateHandlers::Compilable if template_should_include_compilable?
 
-      def self.call(template)
+      def self.call(template, _source=nil)
         "_prawnto_compile_setup;" +
         "pdf = Prawn::Document.new(@prawnto_options[:prawn]);" +
         "#{template.source}\n" +
@@ -20,5 +20,3 @@ module Prawnto
     end
   end
 end
-
-

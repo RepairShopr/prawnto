@@ -1,7 +1,7 @@
 module Prawnto
   module TemplateHandlers
     class Dsl < Base
-      def self.call(template)
+      def self.call(template, _source = nil)
         <<-RUBY
           _prawnto_compile_setup(true)
           pdf = Prawn::Document.new(@prawnto_options[:prawn])
@@ -14,5 +14,3 @@ module Prawnto
     end
   end
 end
-
-
